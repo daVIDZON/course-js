@@ -1,0 +1,119 @@
+html,body{
+    margin: 0px;
+    width: 100%;
+    height:100%;
+}
+.gudjet_pos{
+    background-color: black;
+    width: 30%;
+    height:100%;
+    margin:0 auto;
+    display: flex;  
+    border-radius:35px;  
+}
+.screen{
+    background-color: rgb(255, 255, 255);
+    width:97%;
+    height: 80%;
+    margin-left:7px;
+    align-self: center;
+} 
+.button{
+    width: 4.5%;
+    height:4.5%;
+    border-radius: 100%;
+    border:1px solid rgb(100, 100, 100);
+    background-color: rgb(9 9 9);
+    position: absolute;
+    left:48%;
+    bottom: 10px;
+    transition-duration: 0.3s;
+    cursor: pointer;
+
+}
+.button:active{
+    width: 4%;
+    height:4%;
+    margin-left:5px;
+    transition-duration: 0.3s;
+}
+.border_button{
+background-color: rgb(0, 0, 0);
+position: absolute;
+right: 32.8%;
+top:15%;
+transform: rotate(90deg);
+border-radius: 30%;
+width:4%;
+height:1.5%;
+cursor: pointer;
+}
+.border_button:active{
+    right: 33%;
+}
+.border_button:active .screen{
+    background-color: black;
+
+}
+.dinamic{
+    position:absolute;
+    left: 47%;
+    top:4%;
+    width:6%;
+    height:2%;
+    background-color: rgb(126, 124, 124);
+    border-radius:30%;
+}
+.massage{
+    background-color: black;
+    position: absolute;
+    width: 8%;
+    height:9%;
+    border-radius:50%;
+    top: 12%;
+    left: 37%;
+    
+}
+.massage_1{
+    background-color: black;
+    position: absolute;
+    width: 4%;
+    height:4%;
+    border-radius:5%;
+    top: 16.9%;
+    left: 38%;
+}
+.massage_2{
+    background-color: black;
+    position: absolute;
+    width: 8%;
+    height:9%;
+    border-radius:50%;
+    top: 30%;
+    right: 37%;
+}.massage_3{
+    background-color: black;
+    position: absolute;
+    width: 4%;
+    height:4%;
+    border-radius:5%;
+    top: 34.9%;
+    right: 38%;
+}.massage_4{
+    background-color: black;
+    position: absolute;
+    width: 8%;
+    height:9%;
+    border-radius:50%;
+    top: 50%;
+    left: 37%;
+}
+.massage_5{
+    background-color: black;
+    position: absolute;
+    width: 4%;
+    height:4%;
+    border-radius:5%;
+    top: 54.9%;
+    left: 38%;
+}
