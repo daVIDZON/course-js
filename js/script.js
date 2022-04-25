@@ -7,6 +7,16 @@ const adverts = document.getElementsByClassName('promo__adv'),
     movieList = document.querySelector('.promo__interactive-list');
 
 
+    const movieDB = {
+        movies: [
+            "Логан",
+            "Лига справедливости",
+            "Ла-ла лэнд",
+            "Одержимость",
+            "Скотт Пилигрим против..."
+        ]
+    }
+
 //1
 adverts[0].remove();
 //2
@@ -17,16 +27,6 @@ bg_img.style.cssText = 'background:url("../img/bg.jpg") center center/cover no-r
 function alphabet() {
     //  document.getElementsByClassName('promo__interactive-list')[0];
     // let elements = document.getElementsByClassName("promo__interactive-item");
-
-    const movieDB = {
-        movies: [
-            "Логан",
-            "Лига справедливости",
-            "Ла-ла лэнд",
-            "Одержимость",
-            "Скотт Пилигрим против..."
-        ]
-    }
 
     const sorted = movieDB.movies.sort();
     movieList.innerHTML = "";
@@ -45,35 +45,17 @@ function alphabet() {
 };
 alphabet();
 
-function addNewFilm() {
-    for (let i = 0; i > 6; i++) {
-        const formList = document.querySelector('.add');
-        const Input = document.querySelector('.adding__input');
-        const List = document.querySelector('.promo__interactive-list');
-
-        formList.addEventListener('click', () => {
-            const value = Input.value;
-            const li = document.createElement('li');
-            li.className = 'promo__interactive-item';
-            if (value.length > 19) {
-                li.textContent = value.slice(1, 19) + '...';
-            } else {
-                li.textContent = value;
-            }
-
-            List.appendChild(li);
-        });
-    }
-
-}
-
-addNewFilm();
-
 function removeFilm() {
-    const bin = document.querySelector('.delete');
+    const deleteItems = document.getElementsByClassName('delete');
     const liList = document.querySelector('.promo__interactive-item');
 
 
+    for(let i=0; i<= deleteItems.length - 1; i++){
+        deleteItems[i].addEventListener('click', (e) => {
+            e.currentTarget.parentElement.remove();
+            movieDB.movies.splice(e.currentTarget.dataset.item, 1);
+        });
+    }
     // liList.forEach(bin => {
     //     bin.addEventListener('click', () => {
     //         liList.remove()
@@ -81,6 +63,54 @@ function removeFilm() {
     // })
 }
 removeFilm();
+
+function addNewFilm() {
+    const form = document.querySelector('.add');
+    const input = document.querySelector('.adding__input');
+    const list = document.querySelector('.promo__interactive-list');
+
+    form.addEventListener('submit', () => {
+            const value = input.value;
+
+            if(value === '' || value === null) {
+                return
+            }
+
+            list.innerHTML = '';
+
+            movieDB.movies.push(value);
+
+            const films =  movieDB.movies.sort();
+
+            films.forEach((name, index) => {
+                const li = document.createElement('li');
+                const divDelete = document.createElement('div');
+
+                divDelete.className = 'delete';
+                li.className = 'promo__interactive-item';
+
+                if (value.length > 19) {
+                    li.textContent = (index + 1) + ' ' + name.slice(1, 19) + '...';
+                } else {
+                    li.textContent = (index + 1) + ' ' + name;
+                }
+
+                divDelete.dataset.item = index;
+
+                li.appendChild(divDelete);
+
+                list.appendChild(li);
+            });
+
+            input.value = '';
+
+            removeFilm();
+
+        });
+
+}
+
+addNewFilm();
 
 // btn.addEventListener('click', () => {
 //     console.log(formInput);
