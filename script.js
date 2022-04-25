@@ -71,7 +71,7 @@
 //     privat: false,
 //     start: function() {
 //         personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    
+
 //         while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
 //             personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
 //         }
@@ -80,7 +80,7 @@
 //         for (let i = 0; i < 2; i++) {
 //             const a = prompt('Один из последних просмотренных фильмов?', ''),
 //                   b = prompt('На сколько оцените его?', '');
-        
+
 //             if (a != null && b != null && a != '' && b != '' && a.length < 50) {
 //                 personalMovieDB.movies[a] = b;
 //                 console.log('done');
@@ -127,7 +127,7 @@
 //      personalMovieDB.genres.forEach((i,item)=>{
 //          console.log(`Любимый жанр ${i+1} - это ${item}`);
 //      });
-       
+
 //     }
 // };
 
@@ -297,7 +297,7 @@
 // }
 // random();
 
-console.log(null || 0 || 2 || undefind);
+// console.log(null || 0 || 2 || undefind);
 
 /* Задания на урок:
 
@@ -317,54 +317,73 @@ console.log(null || 0 || 2 || undefind);
 
 
 const adverts = document.getElementsByClassName('promo__adv'),
-      genre = document.getElementsByClassName('promo__genre')[0],
-      bg_img = document.getElementsByClassName('promo__bg')[0];
-    //  movieList=document.querySelector('.promo__interactive-list');
-      
-
+    genre = document.getElementsByClassName('promo__genre')[0],
+    bg_img = document.getElementsByClassName('promo__bg')[0],
+    movieList = document.querySelector('.promo__interactive-list'),
+    btn = document.querySelector('button');
+    // formInput = document.getElementsByClassName('adding__input')[0];
 
 //1
- adverts[0].remove();
- //2
- genre.innerHTML="Драма";
- //3
-bg_img.style.cssText='background:url("../img/bg.jpg") center center/cover no-repeat';
+adverts[0].remove();
+//2
+genre.innerHTML = "Драма";
+//3
+bg_img.style.cssText = 'background:url("../img/bg.jpg") center center/cover no-repeat';
 //4
-function alphabet(){
+function alphabet() {
     //  document.getElementsByClassName('promo__interactive-list')[0];
-    let elements = document.getElementsByClassName("promo__interactive-item");
-        const movieDB ={
-            movies: [
-                "Логан",
-                "Лига справедливости",
-                "Ла-ла лэнд",
-                "Одержимость",
-                "Скотт Пилигрим против..."
-            ]
-        }
+    // let elements = document.getElementsByClassName("promo__interactive-item");
+    const movieDB = {
+        movies: [
+            "Логан",
+            "Лига справедливости",
+            "Ла-ла лэнд",
+            "Одержимость",
+            "Скотт Пилигрим против..."
+        ]
+    }
 
-        const sorted = movieDB.movies.sort();
+    //         const sorted = movieDB.movies.sort();
 
-//   movieList.innerHTML="";
+    movieList.innerHTML = "";
 
-//    movieDB.movies.forEach((film,i)=>{
-//    movieList.innerHTML +=`
-//    <li class="promo__interactive-item">${i+1} ${film}
-//    <div class="delete"></div> 
-// </li> 
-//    `;
-// });
+    movieDB.movies.forEach((film, i) => {
+        movieList.innerHTML += `
+   <li class="promo__interactive-item">${i+1} ${film}
+   <div class="delete"></div> 
+   </li> 
+   `;
+    });
 
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].textContent = i+1 + ' ' + sorted[i]
-        }                                       
+    // for (let i = 0; i < elements.length; i++) {
+    //     elements[i].textContent = i+1 + ' ' + sorted[i]
+    // }                                       
 };
 alphabet();
 
+// function addNewFilm() {
+//     let newFilm =a;
+
+//     if(form=='' || form==null || form==false || form ==NaN){
+//         btn.addEventListener('click', () => {
+//             document.write( /*тут будет елемнт который должен добавится*/ );
+//             return false;
+//         });
+//     }
+
+//      }
+//      addNewFilm();
+
+// btn.addEventListener('click', () => {
+//     console.log(form);
+
+//     return false;
+// });
+// form.addEventListener('keyup', () => {
+//     console.log(form);
+    
+//     return false;
+// });
 
 
-
-
-
-
-
+console.log(document.querySelector('.adding__input').parentElement);
